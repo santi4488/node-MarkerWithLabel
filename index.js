@@ -326,12 +326,14 @@ module.exports = function(gMapsApi) {
       this.labelDiv_.parentNode.removeChild(this.labelDiv_);
     }
     if (this.eventDiv_.parentNode) {
-      this.eventDiv_.parentNode.removeChild(this.eventDiv_);      
+      this.eventDiv_.parentNode.removeChild(this.eventDiv_);
     }
 
     // Remove event listeners:
-    for (i = 0; i < this.listeners_.length; i++) {
-      gMapsApi.event.removeListener(this.listeners_[i]);
+    if (this.listeners_) {
+      for (i = 0; i < this.listeners_.length; i++) {
+        gMapsApi.event.removeListener(this.listeners_[i]);
+      }      
     }
   };
 
