@@ -594,8 +594,8 @@ module.exports = function(gMapsApi) {
     gMapsApi.Marker.prototype.setMap.apply(this, arguments);
 
     // ... then deal with the label:
-    if (this.label) {
-      this.label.setMap(theMap);      
+    if (this.label && this.label.setMap) {
+      this.label.setMap(theMap);
     }
   };
 
