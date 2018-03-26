@@ -333,7 +333,7 @@ module.exports = function(gMapsApi) {
     if (this.listeners_) {
       for (i = 0; i < this.listeners_.length; i++) {
         gMapsApi.event.removeListener(this.listeners_[i]);
-      }      
+      }
     }
   };
 
@@ -594,7 +594,9 @@ module.exports = function(gMapsApi) {
     gMapsApi.Marker.prototype.setMap.apply(this, arguments);
 
     // ... then deal with the label:
-    this.label.setMap(theMap);
+    if (this.label) {
+      this.label.setMap(theMap);      
+    }
   };
 
   return MarkerWithLabel;
